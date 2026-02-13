@@ -17,6 +17,7 @@ The service is **partially ready** for Cloud Run runtime, but **not yet ready** 
 ## What was added
 
 - `.github/workflows/cloud-run-cicd.yml`: CI/CD workflow for GitHub Actions using Workload Identity Federation.
+  - The workflow explicitly passes `--service-account` to `gcloud builds submit`, so Cloud Build steps run as the deploy service account configured in `GCP_SERVICE_ACCOUNT`.
 - `cloudbuild.yaml`: Build, push, and deploy pipeline targeting Cloud Run.
 
 With repository variables/secrets configured, this repo is now ready for Cloud Run CI/CD on GCP.
@@ -40,4 +41,3 @@ Grant to the deploy service account:
 - `roles/artifactregistry.writer`
 - `roles/cloudbuild.builds.editor`
 - `roles/iam.serviceAccountUser`
-
