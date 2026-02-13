@@ -36,5 +36,6 @@ jobs:
         run: |
           gcloud builds submit \
             --project "$PROJECT_ID" \
+            --service-account "${{ secrets.GCP_SERVICE_ACCOUNT }}" \
             --config cloudbuild.yaml \
             --substitutions=_REGION="$REGION",_SERVICE="$SERVICE",_AR_REPO="$AR_REPO"
